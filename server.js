@@ -130,7 +130,7 @@ app.post('/contact', async (req, res) => {
         res.status(500).json({
             success: false,
             message: 'Error: Could not process your request.',
-            error: process.env.NODE_ENV === 'production' ? 'Internal Server Error' : err.message
+            error: err.message // Temporarily exposed for debugging
         });
     }
 });
