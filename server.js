@@ -54,10 +54,28 @@ const initDb = async () => {
 initDb();
 
 // --- FRONTEND ---
-// Served automatically via app.use(express.static('public'));
+// Health Check for Vercel
+app.get('/health', (req, res) => {
+    res.json({
+        status: 'UP',
+        env: process.env.NODE_ENV,
+        db_configured: !!process.env.DB_HOST,
+        email_configured: !!process.env.GMAIL_USER
+    });
+});
+
+// Explicitly serve index.html for the root path to avoid 500s on Vercel
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'), (err) => {
+        if (err) {
+            console.error('Error serving index.html:', err.message);
+            res.status(500).send('Error loading home page. Please check server logs.');
+        }
+    });
+});
 
 // Routes
-// Note: The root URL '/' is handled by express.static serving public// Contact Route
+// Contact Route
 app.post('/contact', async (req, res) => {
     console.log('API HIT: /contact', req.body);
     const { name, email, message, qualification, college, phone, techStack } = req.body;
