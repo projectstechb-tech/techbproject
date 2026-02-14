@@ -4,10 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="TechB Projects - Pioneering project-based learning in high-end tech. Engineering final year and mini projects in AI, Python, React, and more.">
     <title>TechB Projects | Final Year & Mini Projects</title>
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
     <link rel="icon" type="image/png" href="/logo.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 
 <body>
@@ -19,9 +28,10 @@
         <!-- Header -->
         <nav class="navbar">
             <div class="logo">
-                <img src="/logo.png" alt="TechB Logo">
+                <img src="/logo.png" alt="TechB Logo" width="40" height="40">
                 <span>TechB <span class="blue">Projects</span></span>
             </div>
+
 
             <div class="mobile-toggle">
                 <i class="fas fa-bars"></i>
@@ -38,206 +48,214 @@
             </div>
         </nav>
 
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <div class="badge-pill">
-                    <span class="dot-small"></span> NEXT-GEN ENGINEERING
-                </div>
+        <main>
+            <!-- Hero Section -->
 
-                <h1 class="hero-title">
-                    Engineering Your <br>
-                    <span class="text-gradient-green">Future</span> with <br>
-                    High-End Tech
-                </h1>
-
-
-
-                <div class="hero-btns">
-                    <!-- Buttons removed -->
-                </div>
-            </div>
-
-            <div class="hero-image">
-                <img src="/dashboard.png" alt="TechB Dashboard"
-                    style="width: 100%; border-radius: 15px; box-shadow: 0 0 30px rgba(0, 243, 255, 0.2); border: 1px solid var(--glass-border);">
-            </div>
-        </section>
-
-        <!-- Expertise Section -->
-        <section class="expertise" id="projects">
-            <div class="section-header">
-                <span class="section-subtitle">OUR EXPERTISE</span>
-                <h2 class="section-title">Cutting-Edge Technologies</h2>
-                <div
-                    style="height: 4px; width: 100px; background: var(--neon-cyan); margin: 0 auto; border-radius: 2px;">
-                </div>
-            </div>
-
-            <div class="cards-grid">
-                <!-- AI Python -->
-                <div class="card">
-                    <span class="card-number">01</span>
-                    <i class="fab fa-python card-icon"></i>
-                    <h3>AI Python</h3>
-                    <p>Advanced machine learning and automation scripts using Scikit-Learn and TensorFlow.</p>
-                </div>
-                <div class="card">
-                    <span class="card-number">02</span>
-                    <i class="fab fa-react card-icon"></i>
-                    <h3>AI React</h3>
-                    <p>Interactive and dynamic frontend architectures with integrated LLM APIs.</p>
-                </div>
-                <div class="card">
-                    <span class="card-number">03</span>
-                    <i class="fas fa-network-wired card-icon"></i>
-                    <h3>Network</h3>
-                    <p>Secure and scalable infrastructure projects focusing on cybersecurity.</p>
-                </div>
-                <div class="card">
-                    <span class="card-number">04</span>
-                    <i class="fas fa-layer-group card-icon"></i>
-                    <h3>Web App</h3>
-                    <p>Full-stack MERN and React implementations with optimized performance.</p>
-                </div>
-                <div class="card">
-                    <span class="card-number">05</span>
-                    <i class="fas fa-database card-icon"></i>
-                    <h3>Database</h3>
-                    <p>Robust SQL and NoSQL architectural design for high-throughput apps.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Empowering Section -->
-        <section class="empowering" id="about">
-            <div class="empower-cards">
-                <div class="empower-card">
-                    <i class="fas fa-graduation-cap empower-icon ec-cyan"></i>
-                    <h3>Student-Centric Delivery</h3>
-                </div>
-                <div class="empower-card highlight">
-                    <i class="fas fa-road empower-icon ec-green"></i>
-                    <h3>End-to-End Guidance</h3>
-                </div>
-                <div class="empower-card" style="grid-column: span 2; height: auto;">
-                    <i class="fas fa-lightbulb empower-icon"></i>
-                    <h3>TechB Philosophy</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Bridging the gap between theory and
-                        real-world deployment.</p>
-                </div>
-            </div>
-
-            <div class="empower-content">
-                <span class="section-subtitle">ABOUT TECHB PROJECTS</span>
-                <h2 class="section-title">Empowering Final Year Students</h2>
-                <p style="color: var(--text-muted); margin-bottom: 20px;">
-                    TechB helps students bridge the gap between learning and implementation. We provide end-to-end
-                    guidance for Final Year and Mini Projects with a focus on cutting-edge technologies like AI, ML, and
-                    Full-Stack Development.
-                </p>
-                <p style="color: var(--text-muted); margin-bottom: 30px;">
-                    Our team of industry experts ensures that every project isn't just a submission, but a portfolio
-                    piece that demonstrates technical mastery and problem-solving capability.
-                </p>
-            </div>
-        </section>
-
-        <!-- Order Tracking Section (NEW) -->
-        <section class="track-section">
-            <div class="section-header">
-                <span class="section-subtitle">LIVE UPDATES</span>
-                <h2 class="section-title">Track Your Project Progress</h2>
-                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Stay informed at every stage —
-                    from requirement discussion to final submission.</p>
-            </div>
-
-            <div class="track-features">
-                <div class="track-feature-item">
-                    <i class="fas fa-satellite-dish"></i>
-                    <span>Live Progress Updates</span>
-                </div>
-                <div class="track-feature-item">
-                    <i class="fas fa-user-astronaut"></i>
-                    <span>Dedicated Project Mentor</span>
-                </div>
-                <div class="track-feature-item">
-                    <i class="fas fa-code"></i>
-                    <span>Document & Code Access</span>
-                </div>
-                <div class="track-feature-item">
-                    <i class="fas fa-clock"></i>
-                    <span>Deadline Tracking</span>
-                </div>
-                <div class="track-feature-item">
-                    <i class="fas fa-server"></i>
-                    <span>Deployment Monitoring</span>
-                </div>
-            </div>
-
-            <div style="text-align: center;">
-                <a href="/track-order.html" class="btn btn-primary" style="padding: 15px 50px; font-size: 1.1rem;">
-                    <i class="fas fa-search" style="margin-right: 10px;"></i> Track My Order
-                </a>
-            </div>
-        </section>
-
-
-
-        <!-- FAQ Section (NEW) -->
-        <section class="faq-section" id="faq" style="padding: 80px 0; max-width: 800px; margin: 0 auto;">
-            <div class="section-header">
-                <span class="section-subtitle">FAQ</span>
-                <h2 class="section-title">Common Queries</h2>
-            </div>
-
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>What is the delivery time for projects?</h4>
-                        <i class="fas fa-plus"></i>
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="badge-pill">
+                        <span class="dot-small"></span> NEXT-GEN ENGINEERING
                     </div>
-                    <div class="faq-answer">
-                        <p>Delivery time depends on the complexity, but typically ranges from 3 to 14 days.</p>
+
+                    <h1 class="hero-title">
+                        Engineering Your <br>
+                        <span class="text-gradient-green">Future</span> with <br>
+                        High-End Tech
+                    </h1>
+
+
+
+                    <div class="hero-btns">
+                        <!-- Buttons removed -->
                     </div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>Can I customize the tech stack?</h4>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, all our projects are highly customizable. While we specialize in Python, React, and
-                            AI/ML, we can adapt to your specific requirements.</p>
+
+                <div class="hero-image">
+                    <img src="/dashboard.png" alt="TechB Dashboard" width="600" height="600" fetchpriority="high"
+                        style="width: 100%; height: auto; border-radius: 15px; box-shadow: 0 0 30px rgba(0, 243, 255, 0.2); border: 1px solid var(--glass-border);">
+                </div>
+
+            </section>
+
+            <!-- Expertise Section -->
+            <section class="expertise" id="projects">
+                <div class="section-header">
+                    <span class="section-subtitle">OUR EXPERTISE</span>
+                    <h2 class="section-title">Cutting-Edge Technologies</h2>
+                    <div
+                        style="height: 4px; width: 100px; background: var(--neon-cyan); margin: 0 auto; border-radius: 2px;">
                     </div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>Do you provide deployment support?</h4>
-                        <i class="fas fa-plus"></i>
+
+                <div class="cards-grid">
+                    <!-- AI Python -->
+                    <div class="card">
+                        <span class="card-number">01</span>
+                        <i class="fab fa-python card-icon"></i>
+                        <h3>AI Python</h3>
+                        <p>Advanced machine learning and automation scripts using Scikit-Learn and TensorFlow.</p>
                     </div>
-                    <div class="faq-answer">
-                        <p>Yes, we provide complete deployment support on local machines or cloud platforms like
-                            AWS/Heroku.</p>
+                    <div class="card">
+                        <span class="card-number">02</span>
+                        <i class="fab fa-react card-icon"></i>
+                        <h3>AI React</h3>
+                        <p>Interactive and dynamic frontend architectures with integrated LLM APIs.</p>
+                    </div>
+                    <div class="card">
+                        <span class="card-number">03</span>
+                        <i class="fas fa-network-wired card-icon"></i>
+                        <h3>Network</h3>
+                        <p>Secure and scalable infrastructure projects focusing on cybersecurity.</p>
+                    </div>
+                    <div class="card">
+                        <span class="card-number">04</span>
+                        <i class="fas fa-layer-group card-icon"></i>
+                        <h3>Web App</h3>
+                        <p>Full-stack MERN and React implementations with optimized performance.</p>
+                    </div>
+                    <div class="card">
+                        <span class="card-number">05</span>
+                        <i class="fas fa-database card-icon"></i>
+                        <h3>Database</h3>
+                        <p>Robust SQL and NoSQL architectural design for high-throughput apps.</p>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Strong CTA Section (NEW) -->
-        <section class="cta-section"
-            style="text-align: center; padding: 120px 0; background: radial-gradient(circle at center, rgba(0, 243, 255, 0.1) 0%, rgba(5, 5, 17, 1) 70%); border-top: 1px solid var(--glass-border);">
-            <h2 style="font-size: 3rem; margin-bottom: 20px; line-height: 1.2;">Ready to Build Something <br> <span
-                    class="text-italic-cyan">Revolutionary?</span></h2>
-            <p
-                style="color: var(--text-muted); margin-bottom: 40px; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Join 10,000+ students and professionals who are shaping the future of technology today.</p>
-            <a href="#" class="btn btn-primary contact-trigger"
-                style="padding: 18px 50px; font-size: 1.1rem; font-weight: bold; text-transform: uppercase;">Start Your
-                Project</a>
-        </section>
+            <!-- Empowering Section -->
+            <section class="empowering" id="about">
+                <div class="empower-cards">
+                    <div class="empower-card">
+                        <i class="fas fa-graduation-cap empower-icon ec-cyan"></i>
+                        <h3>Student-Centric Delivery</h3>
+                    </div>
+                    <div class="empower-card highlight">
+                        <i class="fas fa-road empower-icon ec-green"></i>
+                        <h3>End-to-End Guidance</h3>
+                    </div>
+                    <div class="empower-card" style="grid-column: span 2; height: auto;">
+                        <i class="fas fa-lightbulb empower-icon"></i>
+                        <h3>TechB Philosophy</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Bridging the gap between theory and
+                            real-world deployment.</p>
+                    </div>
+                </div>
 
+                <div class="empower-content">
+                    <span class="section-subtitle">ABOUT TECHB PROJECTS</span>
+                    <h2 class="section-title">Empowering Final Year Students</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">
+                        TechB helps students bridge the gap between learning and implementation. We provide end-to-end
+                        guidance for Final Year and Mini Projects with a focus on cutting-edge technologies like AI, ML,
+                        and
+                        Full-Stack Development.
+                    </p>
+                    <p style="color: var(--text-muted); margin-bottom: 30px;">
+                        Our team of industry experts ensures that every project isn't just a submission, but a portfolio
+                        piece that demonstrates technical mastery and problem-solving capability.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Order Tracking Section (NEW) -->
+            <section class="track-section">
+                <div class="section-header">
+                    <span class="section-subtitle">LIVE UPDATES</span>
+                    <h2 class="section-title">Track Your Project Progress</h2>
+                    <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Stay informed at every stage
+                        —
+                        from requirement discussion to final submission.</p>
+                </div>
+
+                <div class="track-features">
+                    <div class="track-feature-item">
+                        <i class="fas fa-satellite-dish"></i>
+                        <span>Live Progress Updates</span>
+                    </div>
+                    <div class="track-feature-item">
+                        <i class="fas fa-user-astronaut"></i>
+                        <span>Dedicated Project Mentor</span>
+                    </div>
+                    <div class="track-feature-item">
+                        <i class="fas fa-code"></i>
+                        <span>Document & Code Access</span>
+                    </div>
+                    <div class="track-feature-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Deadline Tracking</span>
+                    </div>
+                    <div class="track-feature-item">
+                        <i class="fas fa-server"></i>
+                        <span>Deployment Monitoring</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <a href="/track-order.html" class="btn btn-primary" style="padding: 15px 50px; font-size: 1.1rem;">
+                        <i class="fas fa-search" style="margin-right: 10px;"></i> Track My Order
+                    </a>
+                </div>
+            </section>
+
+
+
+            <!-- FAQ Section (NEW) -->
+            <section class="faq-section" id="faq" style="padding: 80px 0; max-width: 800px; margin: 0 auto;">
+                <div class="section-header">
+                    <span class="section-subtitle">FAQ</span>
+                    <h2 class="section-title">Common Queries</h2>
+                </div>
+
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What is the delivery time for projects?</h4>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Delivery time depends on the complexity, but typically ranges from 3 to 14 days.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Can I customize the tech stack?</h4>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, all our projects are highly customizable. While we specialize in Python, React, and
+                                AI/ML, we can adapt to your specific requirements.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Do you provide deployment support?</h4>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we provide complete deployment support on local machines or cloud platforms like
+                                AWS/Heroku.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Strong CTA Section (NEW) -->
+            <section class="cta-section"
+                style="text-align: center; padding: 120px 0; background: radial-gradient(circle at center, rgba(0, 243, 255, 0.1) 0%, rgba(5, 5, 17, 1) 70%); border-top: 1px solid var(--glass-border);">
+                <h2 style="font-size: 3rem; margin-bottom: 20px; line-height: 1.2;">Ready to Build Something <br> <span
+                        class="text-italic-cyan">Revolutionary?</span></h2>
+                <p
+                    style="color: var(--text-muted); margin-bottom: 40px; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Join 10,000+ students and professionals who are shaping the future of technology today.</p>
+                <a href="#" class="btn btn-primary contact-trigger"
+                    style="padding: 18px 50px; font-size: 1.1rem; font-weight: bold; text-transform: uppercase;">Start
+                    Your
+                    Project</a>
+            </section>
+
+        </main>
     </div>
+
 
 
 
@@ -298,11 +316,12 @@
                     <p style="margin-top: 20px; color: var(--text-muted); max-width: 300px;">Pioneering project-based
                         learning in high-end tech since 2026. Engineering future innovators.</p>
                     <div class="social-links" style="margin-top: 20px; display: flex; gap: 15px;">
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
+
                 </div>
 
                 <div class="footer-links">
