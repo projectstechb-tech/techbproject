@@ -11,7 +11,8 @@ const PORT = 3000;
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
+// Static files moved to end of routes to prevent 404 on API
+
 
 // --- DATABASE CONFIGURATION (PostgreSQL/Supabase) ---
 const pool = new Pool({
@@ -58,9 +59,9 @@ initDb();
 // Routes
 // Note: The root URL '/' is handled by express.static serving public// Contact Route
 app.post('/contact', async (req, res) => {
+    console.log('API HIT: /contact', req.body);
     const { name, email, message, qualification, college, phone, techStack } = req.body;
 
-    console.log('Received contact request:', req.body);
 
     // Basic Validation
     if (!name || !email || !message || !phone) {
@@ -136,7 +137,9 @@ app.post('/contact', async (req, res) => {
 
 // --- ORDER TRACKING ENDPOINT ---
 app.get('/api/track-order', async (req, res) => {
+    console.log('API HIT: /api/track-order', req.query);
     const { orderId, email } = req.query;
+
 
     if (!orderId && !email) {
         return res.status(400).json({ success: false, message: 'Please provide an Order ID or Email.' });
@@ -265,6 +268,14 @@ app.post('/api/update-order-status', async (req, res) => {
         console.error('Error updating status:', err);
         res.status(500).json({ success: false, message: 'Server error updating status.' });
     }
+});
+
+// Serve Static Files AFTER API Routes
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Catch-all for undefined API routes
+app.use('/api/*', (req, res) => {
+    res.status(404).json({ success: false, message: `API route not found: ${req.originalUrl}` });
 });
 
 // Start Server
