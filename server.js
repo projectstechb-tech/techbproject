@@ -33,8 +33,10 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-// Initialize Database Table
+// Initialize Database Table (Lazy initialization)
+let dbInitialized = false;
 const initDb = async () => {
+    if (dbInitialized) return;
     try {
         await pool.query(`
             CREATE TABLE IF NOT EXISTS contacts (
@@ -42,25 +44,33 @@ const initDb = async () => {
                 name VARCHAR(255) NOT NULL,
                 email VARCHAR(255) NOT NULL,
                 message TEXT NOT NULL,
+                phone VARCHAR(50),
+                qualification VARCHAR(255),
+                college VARCHAR(255),
+                tech_stack VARCHAR(255),
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         `);
+        dbInitialized = true;
         console.log('Connected to Supabase. Table "contacts" checked/created.');
     } catch (err) {
-        console.error('Error creating table:', err);
+        console.error('Error creating table:', err.message);
+        // Don't crash the server, just log the error
     }
 };
 
-initDb();
+// initDb() call removed from top-level to prevent Vercel startup crashes
 
-// --- FRONTEND ---
+
 // Health Check for Vercel
-app.get('/health', (req, res) => {
+app.get('/health', async (req, res) => {
+    await initDb(); // Try to init DB on health check
     res.json({
         status: 'UP',
+        db_initialized: dbInitialized,
         env: process.env.NODE_ENV,
-        db_configured: !!process.env.DB_HOST,
-        email_configured: !!process.env.GMAIL_USER
+        db_host: process.env.DB_HOST ? 'Configured' : 'Missing',
+        gmail_user: process.env.GMAIL_USER ? 'Configured' : 'Missing'
     });
 });
 
@@ -77,7 +87,9 @@ app.get('/', (req, res) => {
 // Routes
 // Contact Route
 app.post('/contact', async (req, res) => {
+    await initDb(); // Ensure DB is ready
     console.log('API HIT: /contact', req.body);
+
     const { name, email, message, qualification, college, phone, techStack } = req.body;
 
 
