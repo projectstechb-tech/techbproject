@@ -83,8 +83,13 @@ app.post('/contact', async (req, res) => {
         `;
 
         console.log('Inserting into DB...');
-        await pool.query(query, [name, email, message, phone, qualification, college, techStack]);
-        console.log('DB Insert successful.');
+        try {
+            await pool.query(query, [name, email, message, phone, qualification, college, techStack]);
+            console.log('DB Insert successful.');
+        } catch (dbErr) {
+            console.error('DATABASE ERROR:', dbErr.message);
+            throw new Error(`Database operation failed: ${dbErr.message}`);
+        }
 
         // Send Email Notification
         const mailOptions = {
@@ -109,14 +114,23 @@ app.post('/contact', async (req, res) => {
 
         // Send Email
         console.log('Sending email...');
-        await transporter.sendMail(mailOptions);
-        console.log('Email sent successfully.');
+        try {
+            await transporter.sendMail(mailOptions);
+            console.log('Email sent successfully.');
+        } catch (mailErr) {
+            console.error('EMAIL ERROR:', mailErr.message);
+            throw new Error(`Email sending failed: ${mailErr.message}`);
+        }
 
         res.json({ success: true, message: 'Request sent successfully! Our team will contact you soon.' });
 
     } catch (err) {
-        console.error('SERVER ERROR:', err);
-        res.status(500).json({ success: false, message: 'Error: Could not process your request. Please try again.' });
+        console.error('SERVER ERROR:', err.message);
+        res.status(500).json({
+            success: false,
+            message: 'Error: Could not process your request.',
+            error: process.env.NODE_ENV === 'production' ? 'Internal Server Error' : err.message
+        });
     }
 });
 
