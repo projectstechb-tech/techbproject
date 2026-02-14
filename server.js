@@ -290,6 +290,9 @@ app.post('/api/update-order-status', async (req, res) => {
     }
 });
 
+// Serve Static Files
+app.use(express.static(path.join(__dirname, 'public')));
+
 // API Routes handled above
 
 // Catch-all for undefined API routes
