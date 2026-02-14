@@ -293,7 +293,7 @@ app.post('/api/update-order-status', async (req, res) => {
 // API Routes handled above
 
 // Catch-all for undefined API routes
-app.use('/api/*', (req, res) => {
+app.use('/api', (req, res) => {
     res.status(404).json({ success: false, message: `API route not found: ${req.originalUrl}` });
 });
 
