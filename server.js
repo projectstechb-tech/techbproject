@@ -11,7 +11,7 @@ const PORT = 3000;
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // --- DATABASE CONFIGURATION (PostgreSQL/Supabase) ---
 const pool = new Pool({
@@ -254,7 +254,11 @@ app.post('/api/update-order-status', async (req, res) => {
 });
 
 // Start Server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-    console.log(`Connected to Supabase Postgres.`);
-});
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`Server is running on http://localhost:${PORT}`);
+        console.log(`Connected to Supabase Postgres.`);
+    });
+}
+
+module.exports = app;
