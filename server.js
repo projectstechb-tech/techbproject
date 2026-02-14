@@ -38,19 +38,27 @@ let dbInitialized = false;
 const initDb = async () => {
     if (dbInitialized) return;
     try {
+        // Create if not exists
         await pool.query(`
             CREATE TABLE IF NOT EXISTS contacts (
                 id SERIAL PRIMARY KEY,
                 name VARCHAR(255) NOT NULL,
                 email VARCHAR(255) NOT NULL,
                 message TEXT NOT NULL,
-                phone VARCHAR(50),
-                qualification VARCHAR(255),
-                college VARCHAR(255),
-                tech_stack VARCHAR(255),
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         `);
+
+        // Ensure new columns exist
+        const columns = ['phone', 'qualification', 'college', 'tech_stack'];
+        for (const col of columns) {
+            try {
+                await pool.query(`ALTER TABLE contacts ADD COLUMN IF NOT EXISTS ${col} VARCHAR(255)`);
+            } catch (colErr) {
+                console.log(`Column ${col} already exists or error:`, colErr.message);
+            }
+        }
+
         dbInitialized = true;
         console.log('Connected to Supabase. Table "contacts" checked/created.');
     } catch (err) {
@@ -149,8 +157,8 @@ app.post('/contact', async (req, res) => {
         console.error('SERVER ERROR:', err.message);
         res.status(500).json({
             success: false,
-            message: 'Error: Could not process your request.',
-            error: err.message // Temporarily exposed for debugging
+            message: `Server Error: ${err.message}`, // Show exact error in UI for debugging
+            error: err.message
         });
     }
 });
